@@ -16,7 +16,7 @@ class AuthController extends Controller
     public function login(Request $request){
         $credentials = $request->only(['username','password']);
 
-        if(Auth::attemp($credentials)){
+        if(Auth::attempt($credentials)){
             return redirect('/');
         }else{
             return redirect()->back()->withErrors(['message'=>'Invalid Username or Password']);
